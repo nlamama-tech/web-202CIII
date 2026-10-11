@@ -1,0 +1,1247 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mujer | Venta De Ropa</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: #2c2c2c;
+            background-color: #ffffff;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        /* ===== HEADER ===== */
+        header {
+            background-color: #fff;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .header-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px 40px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #1a1a1a;
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            font-weight: 400;
+            font-style: italic;
+        }
+
+        /* ===== MENÚ PRINCIPAL ===== */
+        nav.main-nav {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .nav-item {
+            position: relative;
+        }
+
+        .nav-item > a {
+            display: block;
+            font-size: 0.9rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: #1a1a1a;
+            transition: color 0.3s;
+            padding: 15px 15px;
+            cursor: pointer;
+        }
+
+        .nav-item > a:hover {
+            color: #b89b7b;
+        }
+
+        /* Submenú desplegable (carpetas) */
+        .dropdown {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #fff;
+            min-width: 220px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+            border-top: 2px solid #b89b7b;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+            z-index: 100;
+        }
+
+        .nav-item:hover .dropdown {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown a {
+            display: block;
+            padding: 12px 20px;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: #444;
+            transition: all 0.3s;
+            border-bottom: 1px solid #f5f5f5;
+        }
+
+        .dropdown a:hover {
+            background-color: #faf7f2;
+            color: #b89b7b;
+            padding-left: 28px;
+        }
+
+        .dropdown a:last-child {
+            border-bottom: none;
+        }
+
+        /* Iconos header */
+        .header-icons {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .header-icons a {
+            font-size: 1.1rem;
+            color: #1a1a1a;
+            transition: color 0.3s;
+        }
+
+        .header-icons a:hover {
+            color: #b89b7b;
+        }
+
+        /* Icono YouTube destacado */
+        .header-icons a.youtube-icon {
+            color: #ff0000;
+        }
+
+        .header-icons a.youtube-icon:hover {
+            color: #cc0000;
+            transform: scale(1.15);
+        }
+
+        /* Menú hamburguesa */
+        .menu-toggle {
+            display: none;
+            font-size: 1.5rem;
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: #1a1a1a;
+        }
+
+        /* ===== BANNER PRINCIPAL ===== */
+        .hero-banner {
+            position: relative;
+            width: 100%;
+            height: 85vh;
+            min-height: 550px;
+            background: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.3)), 
+                        url('https://images.unsplash.com/photo-1490481651871-ab68de25d43d?q=80&w=2070&auto=format&fit=crop') no-repeat center center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 0 40px;
+        }
+
+        .hero-content {
+            max-width: 750px;
+            color: #fff;
+        }
+
+        .hero-content .subtitle {
+            font-size: 1rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            font-weight: 500;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .hero-content h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            font-weight: 700;
+            line-height: 1.15;
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+        }
+
+        .hero-content p {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+
+        .btn-hero {
+            display: inline-block;
+            background-color: #fff;
+            color: #1a1a1a;
+            padding: 15px 45px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: all 0.3s;
+            border: 2px solid #fff;
+        }
+
+        .btn-hero:hover {
+            background-color: transparent;
+            color: #fff;
+        }
+
+        /* ===== PROMOCIONES ===== */
+        .promo-section {
+            padding: 80px 40px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .promo-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .promo-card {
+            position: relative;
+            height: 400px;
+            overflow: hidden;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .promo-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .promo-card:hover img {
+            transform: scale(1.05);
+        }
+
+        .promo-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.1) 60%, rgba(0,0,0,0) 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 30px;
+            color: #fff;
+        }
+
+        .promo-overlay h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .promo-overlay p {
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        /* ===== OFERTA DESTACADA ===== */
+        .offer-section {
+            background-color: #f9f6f2;
+            padding: 80px 40px;
+            text-align: center;
+        }
+
+        .offer-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .offer-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.3rem;
+            color: #1a1a1a;
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .offer-section .highlight {
+            color: #b89b7b;
+            font-weight: 700;
+            font-size: 3rem;
+            display: block;
+            margin: 20px 0;
+            letter-spacing: 3px;
+        }
+
+        .offer-section p {
+            font-size: 1.1rem;
+            color: #555;
+            margin-bottom: 30px;
+            letter-spacing: 1px;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            background-color: #1a1a1a;
+            color: #fff;
+            padding: 15px 45px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: all 0.3s;
+            border: 2px solid #1a1a1a;
+        }
+
+        .btn-primary:hover {
+            background-color: #b89b7b;
+            border-color: #b89b7b;
+        }
+
+        /* ===== MARCAS ===== */
+        .brands-section {
+            padding: 80px 40px;
+            text-align: center;
+            background-color: #fff;
+        }
+
+        .brands-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 600;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+            color: #1a1a1a;
+        }
+
+        .brands-section .subtitle {
+            font-size: 1rem;
+            color: #777;
+            margin-bottom: 50px;
+            letter-spacing: 1px;
+            font-style: italic;
+        }
+
+        .brands-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 40px;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .brand-item {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: #ccc;
+            transition: color 0.3s;
+            padding: 20px;
+            border: 1px solid #f0f0f0;
+        }
+
+        .brand-item:hover {
+            color: #1a1a1a;
+            border-color: #b89b7b;
+        }
+
+        /* ===== TEXTO EDITABLE ===== */
+        .text-section {
+            padding: 80px 40px;
+            text-align: center;
+            background-color: #f9f6f2;
+        }
+
+        .text-section h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+            color: #1a1a1a;
+        }
+
+        .text-section p {
+            max-width: 750px;
+            margin: 0 auto 20px;
+            font-size: 1rem;
+            color: #555;
+            line-height: 1.8;
+        }
+
+        /* ===== CANAL YOUTUBE ===== */
+        .youtube-section {
+            padding: 80px 40px;
+            background-color: #fff;
+            text-align: center;
+        }
+
+        .youtube-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            margin-bottom: 15px;
+            letter-spacing: 2px;
+            color: #1a1a1a;
+        }
+
+        .youtube-section .yt-subtitle {
+            color: #777;
+            margin-bottom: 40px;
+            font-style: italic;
+        }
+
+        .youtube-embed-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+            background-color: #000;
+        }
+
+        .youtube-embed-container iframe {
+            width: 100%;
+            height: 500px;
+            display: block;
+            border: none;
+        }
+
+        .youtube-subscribe-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 30px;
+            background-color: #ff0000;
+            color: #fff;
+            padding: 15px 35px;
+            font-size: 1rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-radius: 4px;
+            transition: all 0.3s;
+        }
+
+        .youtube-subscribe-btn:hover {
+            background-color: #cc0000;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(255,0,0,0.3);
+        }
+
+        .youtube-subscribe-btn i {
+            font-size: 1.3rem;
+        }
+
+        /* ===== CTA FINAL ===== */
+        .final-cta {
+            background-color: #1a1a1a;
+            color: #fff;
+            padding: 80px 40px;
+            text-align: center;
+        }
+
+        .final-cta h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 25px;
+            letter-spacing: 2px;
+        }
+
+        .final-cta p {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            color: #ccc;
+            letter-spacing: 1px;
+        }
+
+        .btn-light {
+            display: inline-block;
+            background-color: transparent;
+            color: #fff;
+            padding: 15px 45px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border: 2px solid #fff;
+            transition: all 0.3s;
+        }
+
+        .btn-light:hover {
+            background-color: #fff;
+            color: #1a1a1a;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background-color: #f9f6f2;
+            padding: 60px 40px 30px;
+            border-top: 1px solid #e5e5e5;
+        }
+
+        .footer-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: #1a1a1a;
+            letter-spacing: 1px;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a {
+            font-size: 0.9rem;
+            color: #666;
+            transition: color 0.3s;
+        }
+
+        .footer-col ul li a:hover {
+            color: #b89b7b;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .footer-social a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 42px;
+            height: 42px;
+            background-color: #1a1a1a;
+            color: #fff;
+            border-radius: 50%;
+            transition: all 0.3s;
+            font-size: 1.05rem;
+        }
+
+        .footer-social a:hover {
+            background-color: #b89b7b;
+            transform: translateY(-3px);
+        }
+
+        .footer-social a.youtube-yt {
+            background-color: #ff0000;
+        }
+
+        .footer-social a.youtube-yt:hover {
+            background-color: #cc0000;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #e5e5e5;
+            font-size: 0.85rem;
+            color: #888;
+            letter-spacing: 1px;
+        }
+
+        /* ===== MODAL YOUTUBE ===== */
+        .yt-modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background-color: rgba(0,0,0,0.9);
+            z-index: 9999;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .yt-modal.active {
+            display: flex;
+        }
+
+        .yt-modal-content {
+            width: 100%;
+            max-width: 1100px;
+            background-color: #000;
+            border-radius: 8px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+        }
+
+        .yt-modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            background-color: #1a1a1a;
+            color: #fff;
+        }
+
+        .yt-modal-header h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .yt-modal-header h3 i {
+            color: #ff0000;
+            font-size: 1.5rem;
+        }
+
+        .yt-modal-close {
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 5px 10px;
+            transition: color 0.3s;
+        }
+
+        .yt-modal-close:hover {
+            color: #ff0000;
+        }
+
+        .yt-modal-body {
+            padding: 20px;
+            background-color: #000;
+            text-align: center;
+        }
+
+        .yt-modal-body iframe {
+            width: 100%;
+            height: 550px;
+            border: none;
+            display: block;
+        }
+
+        .yt-modal-footer {
+            padding: 15px 20px;
+            background-color: #1a1a1a;
+            text-align: center;
+        }
+
+        .yt-modal-footer a {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background-color: #ff0000;
+            color: #fff;
+            padding: 12px 30px;
+            border-radius: 4px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            transition: background-color 0.3s;
+        }
+
+        .yt-modal-footer a:hover {
+            background-color: #cc0000;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 1024px) {
+            .hero-banner {
+                padding: 0 40px;
+            }
+
+            .hero-content h1 {
+                font-size: 3rem;
+            }
+
+            .promo-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .youtube-embed-container iframe {
+                height: 400px;
+            }
+
+            .yt-modal-body iframe {
+                height: 400px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-container {
+                padding: 15px 20px;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            nav.main-nav {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: #fff;
+                flex-direction: column;
+                gap: 0;
+                padding: 10px 0;
+                box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+                display: none;
+                border-top: 1px solid #f0f0f0;
+                max-height: 80vh;
+                overflow-y: auto;
+            }
+
+            nav.main-nav.active {
+                display: flex;
+            }
+
+            .nav-item {
+                width: 100%;
+                border-bottom: 1px solid #f5f5f5;
+            }
+
+            .nav-item > a {
+                padding: 15px 25px;
+                width: 100%;
+            }
+
+            .dropdown {
+                position: static;
+                opacity: 1;
+                visibility: visible;
+                transform: none;
+                box-shadow: none;
+                border-top: none;
+                background-color: #faf7f2;
+                display: none;
+                min-width: 100%;
+            }
+
+            .nav-item.open .dropdown {
+                display: block;
+            }
+
+            .nav-item > a .arrow {
+                float: right;
+                transition: transform 0.3s;
+            }
+
+            .nav-item.open > a .arrow {
+                transform: rotate(180deg);
+            }
+
+            .header-icons {
+                gap: 15px;
+            }
+
+            .hero-banner {
+                padding: 0 25px;
+                height: 70vh;
+            }
+
+            .hero-content h1 {
+                font-size: 2.3rem;
+            }
+
+            .hero-content p {
+                font-size: 1rem;
+            }
+
+            .promo-section {
+                padding: 50px 20px;
+            }
+
+            .promo-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .offer-section {
+                padding: 50px 20px;
+            }
+
+            .offer-section h2 {
+                font-size: 1.6rem;
+            }
+
+            .offer-section .highlight {
+                font-size: 2.2rem;
+            }
+
+            .brands-section {
+                padding: 50px 20px;
+            }
+
+            .brands-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+
+            .text-section {
+                padding: 50px 20px;
+            }
+
+            .youtube-section {
+                padding: 50px 20px;
+            }
+
+            .youtube-embed-container iframe {
+                height: 280px;
+            }
+
+            .yt-modal-body iframe {
+                height: 250px;
+            }
+
+            .final-cta {
+                padding: 50px 20px;
+            }
+
+            .final-cta h2 {
+                font-size: 1.8rem;
+            }
+
+            footer {
+                padding: 40px 20px 20px;
+            }
+
+            .footer-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .footer-social {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo {
+                font-size: 1.3rem;
+            }
+
+            .header-icons {
+                gap: 10px;
+            }
+
+            .header-icons a {
+                font-size: 0.95rem;
+            }
+
+            .hero-banner {
+                height: 60vh;
+                min-height: 400px;
+                padding: 0 20px;
+            }
+
+            .hero-content h1 {
+                font-size: 1.8rem;
+            }
+
+            .hero-content .subtitle {
+                font-size: 0.75rem;
+                letter-spacing: 3px;
+            }
+
+            .btn-hero {
+                padding: 12px 30px;
+                font-size: 0.8rem;
+            }
+
+            .brands-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .brand-item {
+                font-size: 1.2rem;
+            }
+
+            .youtube-embed-container iframe {
+                height: 200px;
+            }
+
+            .yt-modal-body iframe {
+                height: 180px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ===== HEADER CON MENÚ Y CARPETAS ===== -->
+    <header>
+        <div class="header-container">
+            <a href="#" class="logo">Venta <span>De Ropa</span></a>
+            
+            <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <nav class="main-nav" id="mainNav">
+                <!-- MODA -->
+                <div class="nav-item">
+                    <a href="#">Moda <i class="fas fa-chevron-down arrow" style="font-size: 0.7rem; margin-left: 5px;"></i></a>
+                    <div class="dropdown">
+                        <a href="#">Novedades</a>
+                        <a href="#">Tendencias</a>
+                        <a href="#">Ofertas</a>
+                        <a href="#">Colección Verano</a>
+                        <a href="#">Colección Invierno</a>
+                    </div>
+                </div>
+
+                <!-- MUJER -->
+                <div class="nav-item">
+                    <a href="#">Mujer <i class="fas fa-chevron-down arrow" style="font-size: 0.7rem; margin-left: 5px;"></i></a>
+                    <div class="dropdown">
+                        <a href="#">Vestidos</a>
+                        <a href="#">Blusas</a>
+                        <a href="#">Pantalones</a>
+                        <a href="#">Faldas</a>
+                        <a href="#">Chaquetas</a>
+                        <a href="#">Zapatos</a>
+                    </div>
+                </div>
+
+                <!-- HOMBRE -->
+                <div class="nav-item">
+                    <a href="#">Hombre <i class="fas fa-chevron-down arrow" style="font-size: 0.7rem; margin-left: 5px;"></i></a>
+                    <div class="dropdown">
+                        <a href="#">Camisas</a>
+                        <a href="#">Pantalones</a>
+                        <a href="#">Trajes</a>
+                        <a href="#">Chaquetas</a>
+                        <a href="#">Zapatos</a>
+                    </div>
+                </div>
+
+                <!-- NIÑOS -->
+                <div class="nav-item">
+                    <a href="#">Niños <i class="fas fa-chevron-down arrow" style="font-size: 0.7rem; margin-left: 5px;"></i></a>
+                    <div class="dropdown">
+                        <a href="#">Niñas</a>
+                        <a href="#">Niños</a>
+                        <a href="#">Bebés</a>
+                        <a href="#">Accesorios</a>
+                    </div>
+                </div>
+
+                <!-- ATENCIÓN AL CLIENTE -->
+                <div class="nav-item">
+                    <a href="#">Atención al cliente <i class="fas fa-chevron-down arrow" style="font-size: 0.7rem; margin-left: 5px;"></i></a>
+                    <div class="dropdown">
+                        <a href="#">Contacto</a>
+                        <a href="#">Envíos</a>
+                        <a href="#">Devoluciones</a>
+                        <a href="#">Guía de tallas</a>
+                        <a href="#">Preguntas frecuentes</a>
+                    </div>
+                </div>
+
+                <!-- MÁS -->
+                <div class="nav-item">
+                    <a href="#">Más <i class="fas fa-chevron-down arrow" style="font-size: 0.7rem; margin-left: 5px;"></i></a>
+                    <div class="dropdown">
+                        <a href="#">Sobre nosotros</a>
+                        <a href="#">Blog</a>
+                        <a href="#">Trabaja con nosotros</a>
+                        <a href="#">Tiendas</a>
+                    </div>
+                </div>
+            </nav>
+
+            <div class="header-icons">
+                <a href="#" aria-label="Favoritos">
+                    <i class="far fa-heart"></i>
+                </a>
+                <a href="#" aria-label="Carrito">
+                    <i class="fas fa-shopping-bag"></i>
+                </a>
+                <!-- Icono YouTube -->
+                <a href="http://www.youtube.com/@RESTAURANTELM-s1e" 
+                   target="_blank" 
+                   rel="noopener noreferrer"
+                   class="youtube-icon" 
+                   aria-label="YouTube"
+                   title="Visita nuestro canal de YouTube">
+                    <i class="fab fa-youtube"></i>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- ===== BANNER PRINCIPAL ===== -->
+    <section class="hero-banner">
+        <div class="hero-content">
+            <span class="subtitle">Hasta 20% de descuento</span>
+            <h1>Hasta 20% en la oferta más grande</h1>
+            <p>Las mejores marcas de nuestros recién llegados</p>
+            <a href="#" class="btn-hero">Descubrir ahora</a>
+        </div>
+    </section>
+
+    <!-- ===== PROMOCIONES ===== -->
+    <section class="promo-section">
+        <div class="promo-grid">
+            <div class="promo-card">
+                <img src="https://images.unsplash.com/photo-1541099649105-f69ad21f3246?q=80&w=1887&auto=format&fit=crop" alt="Pantalones">
+                <div class="promo-overlay">
+                    <h3>Pantalones</h3>
+                    <p>Nueva colección</p>
+                </div>
+            </div>
+            <div class="promo-card">
+                <img src="https://images.unsplash.com/photo-1611085583191-a3b181a88401?q=80&w=1887&auto=format&fit=crop" alt="Accesorios">
+                <div class="promo-overlay">
+                    <h3>Accesorios a tope</h3>
+                    <p>Completa tu look</p>
+                </div>
+            </div>
+            <div class="promo-card">
+                <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?q=80&w=2070&auto=format&fit=crop" alt="Nuevas paletas">
+                <div class="promo-overlay">
+                    <h3>Actualiza tu look</h3>
+                    <p>Con las nuevas paletas</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== OFERTA DESTACADA ===== -->
+    <section class="offer-section">
+        <div class="offer-container">
+            <h2>Estamos siempre con las mejores marcas</h2>
+            <span class="highlight">20% OFF</span>
+            <p>Seleccionamos los mejores looks</p>
+            <a href="#" class="btn-primary">¡Descúbrelo ahora!</a>
+        </div>
+    </section>
+
+    <!-- ===== MARCAS ===== -->
+    <section class="brands-section">
+        <h2>Las mejores marcas</h2>
+        <p class="subtitle">Mira nuestros accesorios y elige tu combinación</p>
+        <div class="brands-grid">
+            <div class="brand-item">VOGUE</div>
+            <div class="brand-item">ZARA</div>
+            <div class="brand-item">H&M</div>
+            <div class="brand-item">MANGO</div>
+            <div class="brand-item">GUCCI</div>
+            <div class="brand-item">PRADA</div>
+        </div>
+    </section>
+
+    <!-- ===== SECCIÓN DE TEXTO ===== -->
+    <section class="text-section">
+        <h3>Ciertos estilos incluidos</h3>
+        <p>Párrafo. Haz clic aquí para agregar tu propio texto y editar. Es fácil. Haz clic en "Editar texto" o haz doble clic para agregar tu contenido y cambiar la fuente. Siéntete libre de arrastrar, soltar y cambiar el tamaño de los elementos de esta página.</p>
+    </section>
+
+    <!-- ===== SECCIÓN CANAL DE YOUTUBE ===== -->
+    <section class="youtube-section" id="youtubeSection">
+        <h2>Visita nuestro canal de YouTube</h2>
+        <p class="yt-subtitle">RESTAURANTE LM - Contenido exclusivo</p>
+        
+        <div class="youtube-embed-container">
+            <!-- Embed del canal de YouTube -->
+            <iframe 
+                src="https://www.youtube.com/embed?listType=user_uploads&list=RESTAURANTELM-s1e" 
+                title="Canal de YouTube RESTAURANTE LM"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen>
+            </iframe>
+        </div>
+
+        <a href="http://www.youtube.com/@RESTAURANTELM-s1e" 
+           target="_blank" 
+           rel="noopener noreferrer"
+           class="youtube-subscribe-btn">
+            <i class="fab fa-youtube"></i>
+            Suscribirse al canal
+        </a>
+    </section>
+
+    <!-- ===== CTA FINAL ===== -->
+    <section class="final-cta">
+        <h2>Las ofertas harán que tu armario sea más feliz</h2>
+        <p>Aprovecha nuestros descuentos exclusivos por tiempo limitado</p>
+        <a href="#" class="btn-light">Comprar ahora</a>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-col">
+                <h4>Venta De Ropa</h4>
+                <p style="font-size: 0.9rem; color: #666; margin-bottom: 15px;">Tu tienda de moda de confianza. Las mejores marcas y los mejores precios.</p>
+                <div class="footer-social">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="Pinterest"><i class="fab fa-pinterest-p"></i></a>
+                    <!-- YouTube en footer -->
+                    <a href="http://www.youtube.com/@RESTAURANTELM-s1e" 
+                       target="_blank" 
+                       rel="noopener noreferrer"
+                       class="youtube-yt" 
+                       aria-label="YouTube">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Tienda</h4>
+                <ul>
+                    <li><a href="#">Mujer</a></li>
+                    <li><a href="#">Hombre</a></li>
+                    <li><a href="#">Niños</a></li>
+                    <li><a href="#">Accesorios</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Atención al cliente</h4>
+                <ul>
+                    <li><a href="#">Contacto</a></li>
+                    <li><a href="#">Envíos</a></li>
+                    <li><a href="#">Devoluciones</a></li>
+                    <li><a href="#">Preguntas frecuentes</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Newsletter</h4>
+                <p style="font-size: 0.9rem; color: #666; margin-bottom: 15px;">Recibe ofertas exclusivas</p>
+                <form style="display: flex; gap: 5px;">
+                    <input type="email" placeholder="Tu email" style="flex: 1; padding: 10px; border: 1px solid #ddd; font-size: 0.85rem;">
+                    <button type="submit" style="background: #1a1a1a; color: #fff; border: none; padding: 10px 15px; cursor: pointer;"><i class="fas fa-paper-plane"></i></button>
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Venta De Ropa. Todos los derechos reservados. | Canal: <a href="http://www.youtube.com/@RESTAURANTELM-s1e" target="_blank" rel="noopener noreferrer" style="color: #ff0000; font-weight: 600;">RESTAURANTE LM</a></p>
+        </div>
+    </footer>
+
+    <!-- ===== SCRIPT ===== -->
+    <script>
+        // ===== MENÚ HAMBURGUESA =====
+        const menuToggle = document.getElementById('menuToggle');
+        const mainNav = document.getElementById('mainNav');
+
+        menuToggle.addEventListener('click', () => {
+            mainNav.classList.toggle('active');
+            const icon = menuToggle.querySelector('i');
+            if (mainNav.classList.contains('active')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+
+        // ===== SUBMENÚS EN MÓVIL (acordeón) =====
+        document.querySelectorAll('.nav-item > a').forEach(link => {
+            link.addEventListener('click', (e) => {
+                if (window.innerWidth <= 768) {
+                    e.preventDefault();
+                    const parent = link.parentElement;
+                    
+                    // Cerrar otros abiertos
+                    document.querySelectorAll('.nav-item.open').forEach(item => {
+                        if (item !== parent) item.classList.remove('open');
+                    });
+                    
+                    // Alternar el actual
+                    parent.classList.toggle('open');
+                }
+            });
+        });
+
+        // ===== CERRAR MENÚ AL HACER CLIC EN UN ENLACE DEL SUBMENÚ =====
+        document.querySelectorAll('.dropdown a').forEach(link => {
+            link.addEventListener('click', () => {
+                if (window.innerWidth <= 768) {
+                    mainNav.classList.remove('active');
+                    const icon = menuToggle.querySelector('i');
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                    document.querySelectorAll('.nav-item.open').forEach(item => item.classList.remove('open'));
+                }
+            });
+        });
+
+        // ===== ABRIR CANAL DE YOUTUBE AL HACER CLIC EN EL ICONO =====
+        // Los enlaces ya tienen target="_blank" apuntando al canal de YouTube
+        // Esto asegura que se abra en una nueva pestaña mostrando todo el canal
+
+        // ===== CIERRE DE MENÚ AL CAMBIAR TAMAÑO =====
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 768) {
+                mainNav.classList.remove('active');
+                const icon = menuToggle.querySelector('i');
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+                document.querySelectorAll('.nav-item.open').forEach(item => item.classList.remove('open'));
+            }
+        });
+    </script>
+</body>
+</html>
